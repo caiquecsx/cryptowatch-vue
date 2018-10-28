@@ -1,4 +1,8 @@
-# mvp-project
+# CryptoWatch
+
+## Vue JS Criptocurrency
+Project made with Vue JS fetching data from Coincap
+Studies of CleanCode and MVP.
 
 ## Project setup
 ```
