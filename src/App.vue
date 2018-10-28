@@ -21,10 +21,4 @@ export default {
   body .app{
     height: 100%;
   }
-
-  h1
-    {
-        padding: 20px;
-        color: #e6e7eb;
-    }
 </style>
