@@ -1,12 +1,12 @@
 <template>
     <div id="home">
         <h1>CryptoWatch</h1>
-        <Balance id="balance"/>
-        <CurrencyList/>
+        <CurrencyList :info="info" />
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 
 import CurrencyList from './CurrencyList'
 import Balance from './Balance'
@@ -16,6 +16,18 @@ export default {
     components: {
         CurrencyList,
         Balance
+    },
+    data(){
+        return {
+            info: null
+        }
+    },
+    mounted(){
+        axios
+            .get('https://api.coinmarketcap.com/v2/ticker/?limit=10')
+            .then(response => {
+                this.info = response.data.data
+            })
     }
 }
 </script>
@@ -25,9 +37,10 @@ export default {
         display: flex;
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
-    #balance{
-        align-self: flex-end;
+    h1{
+        font-family: 'Montserrat', sans-serif;
     }
 </style>

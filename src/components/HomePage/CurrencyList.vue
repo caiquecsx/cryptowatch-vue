@@ -1,64 +1,51 @@
 <template>
-    <div id="currencyList">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Price</th> 
-                <th>Change</th>
-                <th>%</th>
-            </tr>
-            <tr>
-                <td>Bitcoin</td>
-                <td><span style="color: red">USD</span> 6,435.75</td> 
-                <td>-0.87</td>
-                <td>-0.01%</td>
-            </tr>
-            <tr>
-                <td>Bitcoin</td>
-                <td>6,435.75</td> 
-                <td>-0.87</td>
-                <td>-0.01%</td>
-            </tr>
-            <tr>
-                <td>Bitcoin</td>
-                <td>6,435.75</td> 
-                <td>-0.87</td>
-                <td>-0.01%</td>
-            </tr>
-            <tr>
-                <td>Bitcoin</td>
-                <td>6,435.75</td> 
-                <td>-0.87</td>
-                <td>-0.01%</td>
-            </tr>
-        </table>
+    <div id="container">
+        <div id="currencyList">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Symbol</th> 
+                    <th>Price</th>
+                    <th>Change</th>
+                </tr>
+                <tr v-for="currency in info" :key="currency.id">
+                    <td>{{ currency.name }}</td>
+                    <td>{{ currency.symbol }}</td> 
+                    <td><span style="color: red">$</span>{{ currency.quotes.USD.price }}</td>
+                    <td>{{currency.quotes.USD.percent_change_1h}}%</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: "currencyList"
+  name: "currencyList",
+  props: ["info"]
 };
 </script>
 
 <style>
-    #currencyList{
-        display: flex;
-        align-content: center;
-        align-items: center;
-        width: 100%;
-        background-color: #461a97;
-    }
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        align-self: center;
-        width: 100%;
-        border-radius: 3px;
-        color: #FFF;
-    }
-    td, th {
-        text-align: left;
-        padding: 20px;
-    }
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+#currencyList {
+    align-self: center;
+}
+table {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-collapse: collapse;
+  align-self: center;
+  width: 100%;
+  border-radius: 3px;
+  color: #fff;
+}
+td,
+th {
+  text-align: left;
+  padding: 3%;
+}
 </style>
