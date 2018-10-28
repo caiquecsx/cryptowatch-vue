@@ -30,22 +30,25 @@ export default {
 #container {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 45%;
 }
 #currencyList {
     align-self: center;
+    overflow-x:auto;
 }
-table {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  border-collapse: collapse;
-  align-self: center;
-  width: 100%;
-  border-radius: 3px;
-  color: #fff;
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1em;
 }
-td,
-th {
-  text-align: left;
-  padding: 3%;
+th { 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 10px;
+  text-align: left; 
 }
 </style>
